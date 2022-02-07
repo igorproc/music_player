@@ -23,10 +23,10 @@ function TheHeader () {
             <Link className="the-header__link" to={'/faq'}>справка</Link>
             <Link className="the-header__link" to={'/download'}>скачать</Link>
             <span className="the-header__link the-header__link_disabled">|</span>
-            <Link className="the-header__link" to={'/auth'}>зарегестрироваться</Link>
+            <Link className="the-header__link" to={'/signup'}>зарегестрироваться</Link>
           </nav>
           <div className="the-header__auth">
-            <button className="the-header__button the-header__button_fill">войти</button>
+            <Link className="the-header__button the-header__button_fill" to={'/signin'}>войти</Link>
           </div>
         </div>
       </div>

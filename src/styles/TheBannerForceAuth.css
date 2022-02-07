@@ -26,6 +26,8 @@
 }
 
 .banner-force-auth__button {
+  text-decoration: none;
+  cursor: pointer;
   color:#2e77d0;
   font-size: 20px;
   font-weight: 600;

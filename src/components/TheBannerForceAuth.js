@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import '../styles/TheBannerForceAuth.css'
 
 function TheBannerForceAuth () {
@@ -13,9 +14,9 @@ function TheBannerForceAuth () {
           но ты сможешь пользоваться сервисом бесплатно!
         </div>
       </div>
-      <button className="banner-force-auth__button">
+      <Link className="banner-force-auth__button" to={'/signup'}>
         зарегестрироваться
-      </button>
+      </Link>
     </div>
   )
 }

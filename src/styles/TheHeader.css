@@ -60,6 +60,8 @@
 }
 
 .the-header__button {
+  display: inline-block;
+  text-decoration: none;
   font-size: 14px;
   border: unset;
   background: transparent;
