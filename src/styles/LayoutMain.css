@@ -1,0 +1,19 @@
+.layout__main {
+  --aside-width: 250px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.layout__aside {
+  position: sticky;
+  width: var(--aside-width);
+}
+
+.layout__wrapper {
+  width: 100%;
+  display: block;
+  min-height: 100vh;
+  background-color: #121212;
+}
