@@ -118,8 +118,8 @@
 .auth-form__passwords {
   padding-top: 0.5rem;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   min-width: 500px;
 }
 
@@ -140,4 +140,9 @@
   background-color: #1fdf64;
   color:black;
   margin-left: auto;
+}
+
+.auth-form__forgot {
+  display: block;
+  margin-top: 2rem;
 }

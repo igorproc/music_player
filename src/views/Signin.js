@@ -19,15 +19,15 @@ function Signin () {
           Пароль
           <input type="password" className="auth-form__input"></input>
         </label>
+        <Link className="auth-form__link auth-form__forgot" to={'/forgot_password'}>Забыли пароль?</Link>
         <div className="auth-form__passwords">
-          <Link className="auth-form__link" to={'/forgot_password'}>Забыли пароль?</Link>
           <label>
           Запомнить меня
             <input type="checkbox" className=""></input>
           </label>
+        <Link className="auth__login" to={'/'}>Войти</Link>
         </div>
       </form>
-      <Link className="auth__login" to={'/'}>Войти</Link>
     </div>
   )
 }

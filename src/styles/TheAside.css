@@ -40,6 +40,7 @@
 }
 
 .the-aside__item {
+  text-decoration: none;
   padding-left: 0.5rem;
   padding-top: 1rem;
   color:white;

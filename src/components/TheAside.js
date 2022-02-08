@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import '../styles/TheAside.css'
 
 function TheAside () {
@@ -9,26 +10,26 @@ function TheAside () {
           <div className="the-aside__name">SpotyFree</div>
         </div>
         <nav className="the-aside__menu">
-          <div className="the-aside__item">
+          <Link className="the-aside__item" to={'/'}>
             <i className="fas fa-home fa-lg the-aside__icon"></i>
             <span className="the-aside__label">Главная</span>
-          </div>
-          <div className="the-aside__item">
+          </Link>
+          <Link className="the-aside__item" to={'/search'}>
             <i className="fas fa-search fa-lg the-aside__icon"></i>
             <span className="the-aside__label">Поиск</span>
-          </div>
-          <div className="the-aside__item">
+          </Link>
+          <Link className="the-aside__item" to={'/library'}>
             <i className="fas fa-bars fa-lg the-aside__icon"></i>
             <span className="the-aside__label">Библиотека</span>
-          </div>
-          <div className="the-aside__item the-aside__item_spacer">
+          </Link>
+          <Link className="the-aside__item the-aside__item_spacer" to={'/playlist/create'}>
             <i className="fas fa-plus fa-lg the-aside__icon"></i>
             <span className="the-aside__label">Создать Плейлист</span>
-          </div>
-          <div className="the-aside__item">
+          </Link>
+          <Link className="the-aside__item" to={'/collection/playlist'}>
             <i className="fas fa-heart fa-lg the-aside__icon"></i>
             <span className="the-aside__label">Любимые треки</span>
-          </div>
+          </Link>
         </nav>
         <footer className="the-aside__contact">
           <a href="https://t.me/pr0s1k" target="_blank" className="the-aside__link">Мой Телеграм</a>
