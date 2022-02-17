@@ -14,8 +14,8 @@ function TheHeader () {
     <header className="the-header">
       <div className="the-header__container">
         <div className="the-header__history">
-          <i onClick={arrowPrev} class="fas fa-arrow-circle-left fa-lg the-header__arrow"></i>
-          <i onClick={arrowNext} class="fas fa-arrow-circle-right fa-lg the-header__arrow"></i>
+          <i onClick={arrowPrev} className="fas fa-arrow-circle-left fa-lg the-header__arrow"></i>
+          <i onClick={arrowNext} className="fas fa-arrow-circle-right fa-lg the-header__arrow"></i>
         </div>
         <div className="the-header__action">
           <nav className="the-header__navbar">

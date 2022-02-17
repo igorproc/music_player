@@ -18,6 +18,14 @@ function Router() {
   $objectPath = DIR . 'objects/' . $object . '.php';
   $methodPath = DIR . 'methods/' . $object . '/' . $method . '.php';
   if(!file_exists($objectPath) or !file_exists($methodPath)) die('unknouw method#27');
-  include_once($objectPath);
-  include_once($methodPath);
+  try {
+    include_once($objectPath);
+  } catch(Exception $e) {
+    FatalError('object', $e);
+  }
+  try {
+    include_once($methodPath);
+  } catch(Exception $e) {
+    FatalError('method', $e);
+  }
 }

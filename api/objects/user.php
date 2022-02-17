@@ -70,6 +70,7 @@ function UserValidateName($name){
   return true;
 }
 function UserValidateDateBirth($dateBirth){
+  if(strlen($dateBirth) > 8) return false;
   return true;
 }
 function UserValidateGender($gender){
@@ -95,6 +96,10 @@ function UserError(int $code){
       return ['code' => $code, 'error' => 'Incorrect password'];
     case 107:
       return ['code' => $code, 'error' => 'User wasn\'t created'];
+    case 108:
+      return ['code' => $code, 'error' => 'User not found'];
+    case 109:
+      return ['code' => $code, 'error' => 'Invalid refresh token'];
   }   
 }
 
@@ -105,12 +110,13 @@ function UserGetJWT($data) {
     'typ' => 'JWT',
     'tim' => time()
   ];
-  $secret = hash_hmac('sha256', json_encode($data, JSON_UNESCAPED_UNICODE), $salt);
+  $secret = hash_hmac('sha256', json_encode($header, JSON_UNESCAPED_UNICODE) . json_encode($data, JSON_UNESCAPED_UNICODE), $salt);
   $jwt = base64_encode(json_encode($header)) . '.' . base64_encode(json_encode($data)) . '.' . $secret;
   return $jwt;
 }
 
 function UserGetRefresh($data) {
+  $salt = 'Юмор в тяжёлом весе';
   $header = [
     'alg' => 'sha256',
     'typ' => 'JWT'
@@ -119,7 +125,7 @@ function UserGetRefresh($data) {
     'uid' => $data['uid'],
     'created_at' => time()
   ];
-  $secret = hash_hmac('sha256', json_encode($data, JSON_UNESCAPED_UNICODE), $salt);
+  $secret = hash_hmac('sha256', json_encode($header, JSON_UNESCAPED_UNICODE) . json_encode($body, JSON_UNESCAPED_UNICODE), $salt);
   $refresh = base64_encode(json_encode($header)) . '.' . base64_encode(json_encode($body)) . '.' . $secret;
   return $refresh;
 }
@@ -128,10 +134,14 @@ function UserGeneratorPassword($password) {
   return md5($password . 'Герой будет сражен');
 }
 
+function isLeap($dateBirth) {
+  $year = (int)$dateBirth % 10000;
+  if(($year % 4) !== 0) return false;
+  return true;
+}
+
 /* 
   *TO-DO
-  *Проверять JWT по времени
-  *Зарезервировать ошибку для просроченного токена
   *валидатор
   *Зарезервировать ошибку для logout
   *чекер по времени
